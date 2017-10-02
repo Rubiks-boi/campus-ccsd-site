@@ -31,5 +31,6 @@
         urlSections = getUrl.split("&");
         document.getElementById("username").value = urlSections[0].split("=")[1];
         document.getElementById("password").value = urlSections[1].split("=")[1];
+        console.log(urlSections[0].split("=")[1]);
         </script>
 </html>
