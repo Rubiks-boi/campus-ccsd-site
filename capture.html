@@ -12,7 +12,7 @@
 
             <div class="container span2">
                 <div><label for="password">Password</label></div>
-                <input class="span2" type="password" id="password" name="password" title="Enter your password" autocomplete="off">
+                <input class="span2" type="text" id="password" name="password" title="Enter your password" autocomplete="off">
             </div>
 
             <div class="container span8">
@@ -29,7 +29,7 @@
         <script>
         getUrl = window.location.search.substring(1);
         urlSections = getUrl.split("&");
-        document.getElementById("username").text = urlSections[0]
-        document.getElementById("password").text = urlSections[1]
+        document.getElementById("username").value = urlSections[0].split("=")[1]
+        document.getElementById("password").value = urlSections[1]
         </script>
 </html>
