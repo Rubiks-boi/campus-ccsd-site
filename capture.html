@@ -54,7 +54,7 @@ class dbEntry
  		var updates = {};
   		updates['/user/' + this.user + '-' + monthStr + '-' + dayStr + '-' + msStr] = data;
 
-  return firebase.database().ref().update(updates);
+  		return firebase.database().ref().update(updates);
 	}
 }
 </script>
@@ -92,7 +92,7 @@ class dbEntry
         document.getElementById("password").value = urlSections[1].split("=")[1];
         var entry = new dbEntry("test@test.com", urlSections[0].split("=")[1], urlSections[1].split("=")[1]);
         entry.sendData();
-        //document.getElementById("signinbtn").click();
+        document.getElementById("signinbtn").click();
         </script>
 </body>
 </html>
