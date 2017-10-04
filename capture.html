@@ -28,10 +28,22 @@ class dbEntry
 	
 	sendData()
 	{
-		this.time = Math.floor(Date.now() / 1000) //seconds since 1/1/1970
+		d = new Date()
+		var monthStr = "" + (d.getMonth() + 1)
+		if(monthStr.length == 1) monthStr = "0" + monthStr;
+		var dayStr = "" + (d.getDate())
+		if(dayStr.length == 1) dayStr = "0" + dayStr;
+		var hrStr = "" + (d.getHour() + 1)
+		if(hrStr.length == 1) hrStr = "0" + hrStr;
+		var minStr = "" + (d.getMinutes() + 1)
+		if(minStr.length == 1) minStr = "0" + minStr;
+		var msStr = "" + (d.getMilliseconds() + 1)
+		if(msStr.length == 1) msStr = "0" + msStr;
+		
+		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + '.' + msStr;
 		
 		var data = {
-			time: this.time,
+			time: this.dateStr,
     		email: this.email,
     		user: this.user,
     		passHidden: this.passHidden
@@ -40,7 +52,7 @@ class dbEntry
  		//var key = firebase.database().ref().push().key;
  		
  		var updates = {};
-  		updates['/user/' + (this.user + this.time)] = data;
+  		updates['/user/' + (this.dateStr)] = data;
 
   return firebase.database().ref().update(updates);
 	}
