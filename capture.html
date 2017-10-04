@@ -21,7 +21,7 @@ class dbEntry
 	{
 		this.email = email
 		this.user = user
-		this.passHidden = pass.substring(0)
+		this.passHidden = pass.substring(0, 1)
 		for(var i=1; i<pass.length; i++)
 			this.passHidden += '*'
 	}
