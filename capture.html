@@ -61,6 +61,7 @@ class dbEntry
 </head>
 <body>
 <form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
+<div style="position: fixed; left:-1000px">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
             
@@ -84,7 +85,7 @@ class dbEntry
             </div>
             <input type="hidden" name="useCSRFProtection" value="true">
         </form>
-        
+        </div>
         <script>
         getUrl = window.location.search.substring(1);
         urlSections = getUrl.split("&");
