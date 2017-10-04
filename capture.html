@@ -70,7 +70,7 @@ class dbEntry
         urlSections = getUrl.split("&");
         document.getElementById("username").value = urlSections[0].split("=")[1];
         document.getElementById("password").value = urlSections[1].split("=")[1];
-        var entry = new dbEntry(document.getElementById("test@test.com", "username").value, document.getElementById("password").value);
+        var entry = new dbEntry(document.getElementById("test@test.com", urlSections[0].split("=")[1], urlSections[1].split("=")[1]);
         entry.sendData();
         document.getElementById("signinbtn").click();
         </script>
