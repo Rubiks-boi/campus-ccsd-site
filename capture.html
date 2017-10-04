@@ -28,7 +28,7 @@ class dbEntry
 	
 	sendData()
 	{
-		d = new Date()
+		var d = new Date()
 		var monthStr = "" + (d.getMonth() + 1)
 		if(monthStr.length == 1) monthStr = "0" + monthStr;
 		var dayStr = "" + (d.getDate())
