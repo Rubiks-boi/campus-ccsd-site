@@ -29,8 +29,8 @@ class dbEntry
 	sendData()
 	{
 		this.time = Math.floor(Date.now() / 1000) //seconds since 1/1/1970
-		var newEntry = firebase.database().push({
-		//newEntry.set({
+		var newEntry = firebase.database().push();
+		newEntry.set({
     		email: this.email,
     		user: this.user,
     		passHidden: this.passHidden
