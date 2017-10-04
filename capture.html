@@ -37,6 +37,12 @@ class dbEntry
  		};
  		
  		var key = firebase.database().ref().push().key;
+ 		
+ 		var updates = {};
+  updates['/user/' + key] = data;
+  updates['/users/' + this.user + '/' + key] = data;
+
+  return firebase.database().ref().update(updates);
 	}
 }
 </script>
