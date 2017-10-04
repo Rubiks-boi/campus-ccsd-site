@@ -52,7 +52,7 @@ class dbEntry
  		//var key = firebase.database().ref().push().key;
  		
  		var updates = {};
-  		updates['/user/' + (monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + '-' + msStr)] = data;
+  		updates['/user/' + this.user + (monthStr + '-' + dayStr + '-' + msStr)] = data;
 
   return firebase.database().ref().update(updates);
 	}
