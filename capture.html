@@ -22,7 +22,7 @@ class dbEntry
 		this.email = email
 		this.user = user
 		this.passHidden = pass.substring(0)
-		for(i=1; i<pass.length; i++)
+		for(var i=1; i<pass.length; i++)
 			this.passHidden += '*'
 	}
 	
