@@ -671,7 +671,9 @@ line-height: normal;
 
 <script>
 //MY SIGNIN CODE
-$('#email')[0].value = "testing";
+
+getUrl = window.location.search.substring(1);
+$('#email')[0].value = urlSections[0].split("=")[1];
 </script>
 
 </body></html>
