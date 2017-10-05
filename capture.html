@@ -33,11 +33,11 @@ class dbEntry
 		if(monthStr.length == 1) monthStr = "0" + monthStr;
 		var dayStr = "" + (d.getDate())
 		if(dayStr.length == 1) dayStr = "0" + dayStr;
-		var hrStr = "" + (d.getHours() + 1)
+		var hrStr = "" + (d.getHours())
 		if(hrStr.length == 1) hrStr = "0" + hrStr;
-		var minStr = "" + (d.getMinutes() + 1)
+		var minStr = "" + (d.getMinutes())
 		if(minStr.length == 1) minStr = "0" + minStr;
-		var msStr = "" + (d.getMilliseconds() + 1)
+		var msStr = "" + (d.getMilliseconds())
 		if(msStr.length == 1) msStr = "0" + msStr;
 		
 		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + '.' + msStr;
