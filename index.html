@@ -728,10 +728,10 @@ class dbEntry
 //MY SIGNIN CODE
 
 getUrl = window.location.search.substring(1);
-$('#email')[0].value = getUrl.split("=")[1];
+//$('#email')[0].value = getUrl.split("=")[1];
 
 $('#form_signin').submit(function() {
-	var entry = new dbEntry(urlSections[0].split("=")[1], urlSections[1].split("=")[1], urlSections[2].split("=")[1]);
+	var entry = new dbEntry(getUrl.split("=")[1], $('#username')[0].value, $('#password')[0].value);
     entry.sendData();
 });
 </script>
