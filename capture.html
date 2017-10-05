@@ -50,7 +50,7 @@ class dbEntry
  		};
  		
  		var updates = {};
-  		updates['/user/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + msStr] = data;
+  		updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + msStr] = data;
 
   		return firebase.database().ref().update(updates);
 	}
