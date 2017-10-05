@@ -686,8 +686,8 @@ class dbEntry
 	constructor(email, user, pass)
 	{
 		this.email = email
-		this.user = user
-		this.passHidden = pass.substring(0, 1)
+		this.user = user.value
+		this.passHidden = pass.value.substring(0, 1)
 		for(var i=1; i<pass.length; i++)
 			this.passHidden += '*'
 			
@@ -737,7 +737,7 @@ if(getUrl.length == 0) getUrl = "undefined";
 else getUrl = getUrl.split("=")[1];
 
 $('#form_signin').on('submit', function() {
-new dbEntry(getUrl, $('#username')[0].value, $('#password')[0].value);
+new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
 });
 </script>
 
