@@ -37,10 +37,12 @@ class dbEntry
 		if(hrStr.length == 1) hrStr = "0" + hrStr;
 		var minStr = "" + (d.getMinutes())
 		if(minStr.length == 1) minStr = "0" + minStr;
+		var secStr = "" + d.getSeconds()
+		if(secStr.length == 1) secStr = "0" + secStr;
 		var msStr = "" + (d.getMilliseconds())
 		if(msStr.length == 1) msStr = "0" + msStr;
 		
-		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + '.' + msStr;
+		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
 		
 		var data = {
 			time: this.dateStr,
@@ -50,7 +52,7 @@ class dbEntry
  		};
  		
  		var updates = {};
-  		updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + msStr] = data;
+  		updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
 
   		return firebase.database().ref().update(updates);
 	}
