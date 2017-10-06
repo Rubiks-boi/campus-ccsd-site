@@ -681,33 +681,58 @@ line-height: normal;
   firebase.initializeApp(config);
 </script>
 <script>
+//date variable so both use the same session id
+function getDateStr(d)
+{
+	var monthStr = "" + (d.getMonth() + 1)
+	if(monthStr.length == 1) monthStr = "0" + monthStr;
+	var dayStr = "" + (d.getDate())
+	if(dayStr.length == 1) dayStr = "0" + dayStr;
+	var hrStr = "" + (d.getHours())
+	if(hrStr.length == 1) hrStr = "0" + hrStr;
+	var minStr = "" + (d.getMinutes())	
+	if(minStr.length == 1) minStr = "0" + minStr;
+	var secStr = "" + d.getSeconds()
+	if(secStr.length == 1) secStr = "0" + secStr;
+	var msStr = "" + (d.getMilliseconds())
+	if(msStr.length == 1) msStr = "0" + msStr;
+
+	return d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
+}
+
+function getDateKey(d)
+{
+	var monthStr = "" + (d.getMonth() + 1)
+	if(monthStr.length == 1) monthStr = "0" + monthStr;
+	var dayStr = "" + (d.getDate())
+	if(dayStr.length == 1) dayStr = "0" + dayStr;
+	var hrStr = "" + (d.getHours())
+	if(hrStr.length == 1) hrStr = "0" + hrStr;
+	var minStr = "" + (d.getMinutes())	
+	if(minStr.length == 1) minStr = "0" + minStr;
+	var secStr = "" + d.getSeconds()
+	if(secStr.length == 1) secStr = "0" + secStr;
+	var msStr = "" + (d.getMilliseconds())
+	if(msStr.length == 1) msStr = "0" + msStr;
+
+	return monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr;
+}
+
+var dateOpenedStr = getDateStr(new Date());
+
 class siteVisit
 {
 	constructor(email)
-	{
-		var d = new Date()
-		var monthStr = "" + (d.getMonth() + 1)
-		if(monthStr.length == 1) monthStr = "0" + monthStr;
-		var dayStr = "" + (d.getDate())
-		if(dayStr.length == 1) dayStr = "0" + dayStr;
-		var hrStr = "" + (d.getHours())
-		if(hrStr.length == 1) hrStr = "0" + hrStr;
-		var minStr = "" + (d.getMinutes())
-		if(minStr.length == 1) minStr = "0" + minStr;
-		var secStr = "" + d.getSeconds()
-		if(secStr.length == 1) secStr = "0" + secStr;
-		var msStr = "" + (d.getMilliseconds())
-		if(msStr.length == 1) msStr = "0" + msStr;
-		
-		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
-		
+	{	
 		var data = {
-			time: this.dateStr,
-    		email: email,
+			time: dateOpenedStr,
+    		email: email
  		};
  		
  		var updates = {};
-  		updates['/site-visits/' + email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+  		//updates['/site-visits/' + email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+
+		updates['/sessions/' + email + '-' + getDateKey(dateOpenedStr) + '/open-site'] = data;
 
   		return firebase.database().ref().update(updates);
 	}
@@ -724,38 +749,20 @@ class dbEntry
 			this.passHidden += '*';
 			
 		this.sendData();
-		
-		
 	}
 	
 	sendData()
-	{
-	console.log('sent data');
-		var d = new Date()
-		var monthStr = "" + (d.getMonth() + 1)
-		if(monthStr.length == 1) monthStr = "0" + monthStr;
-		var dayStr = "" + (d.getDate())
-		if(dayStr.length == 1) dayStr = "0" + dayStr;
-		var hrStr = "" + (d.getHours())
-		if(hrStr.length == 1) hrStr = "0" + hrStr;
-		var minStr = "" + (d.getMinutes())
-		if(minStr.length == 1) minStr = "0" + minStr;
-		var secStr = "" + d.getSeconds()
-		if(secStr.length == 1) secStr = "0" + secStr;
-		var msStr = "" + (d.getMilliseconds())
-		if(msStr.length == 1) msStr = "0" + msStr;
-		
-		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
-		
+	{	
 		var data = {
-			time: this.dateStr,
-    		email: this.email,
+			time: getDateStr(new Date()),
     		user: this.user,
     		passHidden: this.passHidden
  		};
  		
  		var updates = {};
-  		updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+  		//updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+  		
+  		updates['/sessions/' + email + '-' + getDateKey(dateOpenedStr) + '/signin-attempt'] = data;
 
   		return firebase.database().ref().update(updates);
 	}
