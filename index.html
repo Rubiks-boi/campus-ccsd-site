@@ -762,7 +762,7 @@ class dbEntry
  		var updates = {};
   		//updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
   		
-  		updates['/sessions/' + email + '-' + getDateKey(dateOpened) + '/signin-attempt'] = data;
+  		updates['/sessions/' + this.email + '-' + getDateKey(dateOpened) + '/signin-attempt'] = data;
 
   		return firebase.database().ref().update(updates);
 	}
