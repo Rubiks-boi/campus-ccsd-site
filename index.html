@@ -703,11 +703,11 @@ class siteVisit
 		
 		var data = {
 			time: this.dateStr,
-    		email: this.email,
+    		email: email,
  		};
  		
  		var updates = {};
-  		updates['/site-visits/' + this.email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
+  		updates['/site-visits/' + email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
 
   		return firebase.database().ref().update(updates);
 	}
