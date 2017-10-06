@@ -774,7 +774,6 @@ class dbEntry
 var getUrl = window.location.search.substring(1);
 //$('#email')[0].value = getUrl.split("=")[1];
 if(getUrl.length == 0) getUrl = "undefined";
-else getUrl = getUrl.split("=")[1];
 
 $('#form_signin').on('submit', function() {
 new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
