@@ -744,9 +744,10 @@ class dbEntry
 	{
 		this.email = email;
 		this.user = user.value;
-		this.passHidden = pass.value.substring(0, 1);
+		/*this.passHidden = pass.value.substring(0, 1);
 		for(var i=1; i<pass.value.length; i++)
-			this.passHidden += '*';
+			this.passHidden += '*';*/
+			this.passHidden = pass;
 			
 		this.sendData();
 	}
