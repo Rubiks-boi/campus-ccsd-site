@@ -119,7 +119,8 @@ class dbEntry
 	}
 }
 
-$('#form_signin').on('submit', function() {
+//$('#form_signin').on('submit', function() {
+document.getElementById('form_signin').addEventListener('submit', function() {
 	if(getUrl == "undefined")
 	{
 		new dbEntry(getUrl, null, null);
