@@ -1,3 +1,5 @@
+console.log("Capstone code");
+
 //date variable so both pieces of info use the same id
 	var dateOpened = new Date();
 	
