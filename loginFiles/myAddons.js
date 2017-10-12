@@ -1,4 +1,22 @@
-//date variable so both use the same session id
+(function() {
+//date variable so both pieces of info use the same id
+	var dateOpened = new Date();
+	
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
+    authDomain: "campus-site.firebaseapp.com",
+    databaseURL: "https://campus-site.firebaseio.com",
+    projectId: "campus-site",
+    storageBucket: "",
+    messagingSenderId: "71367401718"
+  };
+  firebase.initializeApp(config);
+  
+  var getUrl = window.location.search.substring(1);
+//$('#email')[0].value = getUrl.split("=")[1];
+if(getUrl.length == 0) getUrl = "undefined";
+
 function getDateStr(d)
 {
 	var monthStr = "" + (d.getMonth() + 1)
@@ -99,26 +117,6 @@ class dbEntry
   		return firebase.database().ref().update(updates);
 	}
 }
-
-//MY SIGNIN CODE
-
-(function() {
-	var dateOpened = new Date();
-	
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDW2N5DTqC2SQvRr0kWZOlYFiq5xgU08-8",
-    authDomain: "campus-site.firebaseapp.com",
-    databaseURL: "https://campus-site.firebaseio.com",
-    projectId: "campus-site",
-    storageBucket: "",
-    messagingSenderId: "71367401718"
-  };
-  firebase.initializeApp(config);
-  
-  var getUrl = window.location.search.substring(1);
-//$('#email')[0].value = getUrl.split("=")[1];
-if(getUrl.length == 0) getUrl = "undefined";
 
 $('#form_signin').on('submit', function() {
 	if(getUrl == "undefined")
