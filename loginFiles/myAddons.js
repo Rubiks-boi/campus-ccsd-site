@@ -1,4 +1,3 @@
-(function() {
 //date variable so both pieces of info use the same id
 	var dateOpened = new Date();
 	
@@ -129,4 +128,3 @@ $('#form_signin').on('submit', function() {
 
   //log visit on db
 new siteVisit(getUrl);
-});
