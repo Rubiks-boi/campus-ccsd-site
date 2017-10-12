@@ -114,8 +114,7 @@ class dbEntry
   		return firebase.database().ref().update(updates);
 	}
 }
-</script>
-<script>
+
 //MY SIGNIN CODE
 
 var getUrl = window.location.search.substring(1);
